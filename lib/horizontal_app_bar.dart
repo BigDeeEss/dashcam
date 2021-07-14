@@ -1,15 +1,15 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+// import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 
-import 'bottom_app_bar_theme.dart';
-import 'elevation_overlay.dart';
-import 'material.dart';
-import 'scaffold.dart';
-import 'theme.dart';
+// import 'bottom_app_bar_theme.dart';
+// import 'elevation_overlay.dart';
+// import 'material.dart';
+// import 'scaffold.dart';
+// import 'theme.dart';
 
 // Examples can assume:
 // late Widget bottomAppBarContents;
@@ -199,7 +199,7 @@ import 'theme.dart';
 ///  * [NotchedShape] which calculates the notch for a notched [BottomAppBar].
 ///  * [FloatingActionButton] which the [BottomAppBar] makes a notch for.
 ///  * [AppBar] for a toolbar that is shown at the top of the screen.
-class BottomAppBar extends StatefulWidget {
+class HorizontalAppBar extends StatefulWidget {
   /// Creates a bottom application bar.
   ///
   /// The [clipBehavior] argument defaults to [Clip.none] and must not be null.
@@ -208,7 +208,7 @@ class BottomAppBar extends StatefulWidget {
   /// If [color], [elevation], or [shape] are null, their [BottomAppBarTheme] values will be used.
   /// If the corresponding [BottomAppBarTheme] property is null, then the default
   /// specified in the property's documentation will be used.
-  const BottomAppBar({
+  const HorizontalAppBar({
     Key? key,
     this.color,
     this.elevation,
@@ -266,10 +266,10 @@ class BottomAppBar extends StatefulWidget {
   final double notchMargin;
 
   @override
-  State createState() => _BottomAppBarState();
+  State createState() => _HorizontalAppBarState();
 }
 
-class _BottomAppBarState extends State<BottomAppBar> {
+class _HorizontalAppBarState extends State<HorizontalAppBar> {
   late ValueListenable<ScaffoldGeometry> geometryListenable;
   static const double _defaultElevation = 8.0;
 
