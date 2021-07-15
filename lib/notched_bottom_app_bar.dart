@@ -266,7 +266,7 @@ class NotchedBottomAppBar extends StatefulWidget {
   final double notchMargin;
 
   @override
-  State createState() => _NotchedBottomAppBarState();
+  _NotchedBottomAppBarState createState() => _NotchedBottomAppBarState();
 }
 
 class _NotchedBottomAppBarState extends State<NotchedBottomAppBar> {
