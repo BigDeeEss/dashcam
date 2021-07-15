@@ -33,7 +33,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
           tooltip: 'Create',
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        bottomNavigationBar: BottomAppBar(
+        bottomNavigationBar: NotchedBottomAppBar(
           color: Colors.blue,
           shape: CircularNotchedRectangle(),
           child: IconTheme(
