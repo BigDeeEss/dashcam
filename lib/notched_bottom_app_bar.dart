@@ -275,6 +275,7 @@ class _NotchedBottomAppBarState extends State<NotchedBottomAppBar> {
 
   @override
   void didChangeDependencies() {
+    print('didChangeDependencies executed..');
     super.didChangeDependencies();
     geometryListenable = Scaffold.geometryOf(context);
   }
