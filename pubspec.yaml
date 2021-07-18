@@ -75,6 +75,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: DashCam
+    - family: CustomIcons
       fonts:
-        - asset: external/fonts/dash_cam_custom_icons.ttf
+        - asset: lib/external/fonts/custom_icons.ttf

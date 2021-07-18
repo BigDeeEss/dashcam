@@ -31,10 +31,10 @@
 ///
 import 'package:flutter/widgets.dart';
 
-class DashCamFonts {
-  DashCamFonts._();
+class CustomIcons {
+  CustomIcons._();
 
-  static const _kFontFam = 'DashCamFonts';
+  static const _kFontFam = 'CustomIcons';
   static const String? _kFontPkg = null;
 
   static const IconData eject_alt = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -48,7 +48,7 @@ class DashCamFonts {
   static const IconData video = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData videocam = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData videocam_outline = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData file_video = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // static const IconData file_video = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData videocam_1 = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData videocam_off = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData videocam_2 = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -58,7 +58,7 @@ class DashCamFonts {
   static const IconData eject = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home_1 = IconData(0xf015, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_1 = IconData(0xf03d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData file_video = IconData(0xf1c8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // static const IconData file_video = IconData(0xf1c8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sliders = IconData(0xf1de, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_slash = IconData(0xf4e2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData satellite = IconData(0xf7bf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
