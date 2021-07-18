@@ -27,14 +27,15 @@ class Home extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 150,
-          right: 150,
-          height: 150,
-          width: 150,
-          child: Icon(
-            // Icons.video,
-            CustomIcons.cog_1,
-            color: Colors.pink,
+          bottom: 100,
+          right: 100,
+          height: 50,
+          width: 50,
+          child: Material(
+            child: IconButton(
+              icon: const Icon(Icons.volume_up),
+              onPressed: () {}
+            ),
           ),
         ),
       ],
