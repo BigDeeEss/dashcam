@@ -9,6 +9,16 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          bottom: 50,
+          right: 50,
+          height: 50,
+          width: 50,
+          child: FlutterLogo()
+        ),
+      ],
+    );
   }
 }

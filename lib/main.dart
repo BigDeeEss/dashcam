@@ -15,7 +15,7 @@ void main() {
 
 
 class DashCam extends StatelessWidget {
-  // Default constructor required for const specifier
+  // Default constructor required because there is a const keyword
   // in 'runApp(const DashCam());' above.
   const DashCam({Key? key}) : super(key: key);
 
@@ -30,7 +30,7 @@ class DashCam extends StatelessWidget {
 
       // Define all routes in DashCam app; note this is a map/dictionary.
       routes: {
-        // Specify initial route (built at time of initial widget build).
+        // Specify initial route (used at time of initial widget build).
         // Can be overridden by initialRoute.
         '/': (context) => Home(),
 
