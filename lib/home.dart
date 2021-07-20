@@ -30,10 +30,12 @@ class Home extends StatelessWidget {
           bottom: 100,
           right: 100,
           height: 50,
-          width: 50,
+          width: 150,
           child: Material(
+            color: Colors.green,
             child: IconButton(
-              icon: const Icon(Icons.volume_up),
+              icon: const Icon(CustomIcons.videocam),
+              // iconSize: 50,
               onPressed: () {}
             ),
           ),
