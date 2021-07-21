@@ -62,10 +62,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       position: _offsetAnimation,
       child: Padding(
         padding: EdgeInsets.all(8.0),
-        child: IconButton(
-          icon: Icon(CustomIcons.cog_1),
-          onPressed: () {},
-        ),
+          child: FloatingActionButton(
+            child: Icon(CustomIcons.cog_1),
+            onPressed: () {},
+          ),
+        // child: IconButton(
+        //   icon: Icon(CustomIcons.cog_1),
+        //   color: Colors.blue,
+        //   onPressed: () {},
+        // ),
         // child: FlutterLogo(size: 150.0),
       ),
     );
