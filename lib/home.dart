@@ -11,36 +11,63 @@ import './external/lib/custom_icons.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Positioned(
-          bottom: 50,
-          right: 50,
-          height: 50,
-          width: 50,
-          child: Icon(
-            // Icons.video,
-            Icons.favorite,
-            color: Colors.pink,
-          ),
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const Center(
+          child: MyStatefulWidget(),
         ),
-        Positioned(
-          bottom: 100,
-          right: 100,
-          height: 50,
-          width: 150,
-          child: Material(
-            color: Colors.green,
-            child: IconButton(
-              icon: const Icon(CustomIcons.videocam),
-              // iconSize: 50,
-              onPressed: () {}
-            ),
-          ),
+      ),
+    );
+  }
+}
+
+/// This is the stateful widget that the main application instantiates.
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 2),
+    vsync: this,
+  )..repeat(reverse: true);
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(1.5, 0.0),
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.elasticIn,
+  ));
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideTransition(
+      position: _offsetAnimation,
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: IconButton(
+          icon: Icon(CustomIcons.cog_1),
+          onPressed: () {},
         ),
-      ],
+        // child: FlutterLogo(size: 150.0),
+      ),
     );
   }
 }
