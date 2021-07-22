@@ -1,6 +1,7 @@
 
 
 // Import flutter packages.
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,32 +20,97 @@ class Home extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: const Center(
-          child: MyStatefulWidget(),
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: FloatingActionButton(
+                      child: Icon(CustomIcons.cog_1),
+                      onPressed: () {},
+                    ),
+                  ),
+                  SizedBox(
+                    height: 100,
+                    width: 100,
+                    child:
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: FloatingActionButton(
+                        child: Icon(CustomIcons.eject),
+                        onPressed: () {},
+                      ),
+                    ),
+                    // FloatingActionButton(
+                    //   child: Icon(CustomIcons.eject),
+                    //   onPressed: () {},
+                    // ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: FloatingActionButton(
+                      child: Icon(CustomIcons.photo_video),
+                      onPressed: () {},
+                    ),
+                  ),
+                ]
+              ),
+            ),
+            // Positioned(
+            //   top: 0.0,
+            //   right: 0.0,
+            //   child: FloatingActionButton(
+            //     child: Icon(CustomIcons.satellite_dish),
+            //     onPressed: () {},
+            //   ),
+            // ),
+            SlideTransitionFAB(),
+          ],
         ),
       ),
     );
   }
 }
 
-/// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+
+class AnimatedPositionFAB extends StatefulWidget {
+  const AnimatedPositionFAB({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  _AnimatedPositionFABState createState() => _AnimatedPositionFABState();
 }
 
-/// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget>
+class _AnimatedPositionFABState extends State<AnimatedPositionFAB> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+
+
+/// This is the stateful widget that the main application instantiates.
+class SlideTransitionFAB extends StatefulWidget {
+  const SlideTransitionFAB({Key? key}) : super(key: key);
+
+  @override
+  State<SlideTransitionFAB> createState() => _SlideTransitionFABState();
+}
+
+/// This is the private State class that goes with SlideTransitionFAB.
+class _SlideTransitionFABState extends State<SlideTransitionFAB>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 2),
+    duration: const Duration(seconds: 3),
     vsync: this,
   )..repeat(reverse: true);
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
-    begin: Offset.zero,
-    end: const Offset(1.5, 0.0),
+    begin: Offset(0.0,-1.0),
+    end: const Offset(0.0,3.0),
   ).animate(CurvedAnimation(
     parent: _controller,
     curve: Curves.elasticIn,
@@ -66,12 +132,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
             child: Icon(CustomIcons.cog_1),
             onPressed: () {},
           ),
-        // child: IconButton(
-        //   icon: Icon(CustomIcons.cog_1),
-        //   color: Colors.blue,
-        //   onPressed: () {},
-        // ),
-        // child: FlutterLogo(size: 150.0),
       ),
     );
   }
