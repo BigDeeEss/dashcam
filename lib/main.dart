@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import './home.dart';
+import './settings.dart';
 
 
 // App start point.
@@ -34,14 +35,14 @@ class DashCam extends StatelessWidget {
         // Can be overridden by initialRoute.
         '/': (context) => Home(),
 
-        // // Specify route => Home() route...
-        // '/home': (context) => Home(),
-        //
+        // Specify route => Home() route...
+        '/home': (context) => Home(),
+
         // // Specify route => Files() route...
         // '/files': (context) => Files(),
-        //
-        // // Specify route => Settings() route...
-        // '/settings': (context) => Settings(),
+
+        // Specify route => Settings() route...
+        '/settings': (context) => Settings(),
       },
     );
   }

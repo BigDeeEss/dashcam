@@ -1,12 +1,13 @@
 
 
 // Import flutter packages.
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 // Import project-specific files.
 import './external/lib/custom_icons.dart';
+import './settings.dart';
 
 
 class Home extends StatelessWidget {
@@ -30,6 +31,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(10.0),
                     child: FloatingActionButton(
+                      heroTag: 'settings1',
                       child: Icon(CustomIcons.cog_1),
                       onPressed: () {},
                     ),
@@ -41,6 +43,7 @@ class Home extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                       child: FloatingActionButton(
+                        heroTag: 'eject',
                         child: Icon(CustomIcons.eject),
                         onPressed: () {},
                       ),
@@ -53,6 +56,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(10.0),
                     child: FloatingActionButton(
+                      heroTag: 'photos',
                       child: Icon(CustomIcons.photo_video),
                       onPressed: () {},
                     ),
@@ -113,7 +117,7 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
   )..repeat(reverse: true);
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
     begin: Offset(0.0,0.0),
-    end: const Offset(0.0,3.0),
+    end: const Offset(0.0,4.0),
   ).animate(CurvedAnimation(
     parent: _controller,
     curve: Curves.elasticIn,
@@ -132,8 +136,12 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
       child: Padding(
         padding: EdgeInsets.all(8.0),
           child: FloatingActionButton(
+            heroTag: 'settings',
             child: Icon(CustomIcons.cog_1),
-            onPressed: () {},
+            onPressed: () {
+              print('Pressed it!');
+              Navigator.popAndPushNamed(context, '/settings');
+            },
           ),
       ),
     );
