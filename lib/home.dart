@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import './external/lib/custom_icons.dart';
+import './home.dart';
 import './settings.dart';
 
 
@@ -33,7 +34,10 @@ class Home extends StatelessWidget {
                     child: FloatingActionButton(
                       heroTag: 'settings1',
                       child: Icon(CustomIcons.cog_1),
-                      onPressed: () {},
+                      onPressed: () {
+                        print('Pressed it!');
+                        print(context);
+                        Navigator.popAndPushNamed(context, '/settings');},
                     ),
                   ),
                   SizedBox(
@@ -58,7 +62,10 @@ class Home extends StatelessWidget {
                     child: FloatingActionButton(
                       heroTag: 'photos',
                       child: Icon(CustomIcons.photo_video),
-                      onPressed: () {},
+                      onPressed: () {
+                        print('Pressed it!');
+                        Navigator.popAndPushNamed(context, '/settings');
+                      },
                     ),
                   ),
                 ]
@@ -73,10 +80,18 @@ class Home extends StatelessWidget {
             //   ),
             // ),
             Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.topLeft,
               child: SlideTransitionFAB(),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          heroTag: 'settings3425',
+          child: Icon(CustomIcons.cog_1),
+          onPressed: () {
+            print('Pressed it!');
+            Navigator.pushNamed(context, '/home');
+          },
         ),
       ),
     );
@@ -84,19 +99,19 @@ class Home extends StatelessWidget {
 }
 
 
-class AnimatedPositionFAB extends StatefulWidget {
-  const AnimatedPositionFAB({Key? key}) : super(key: key);
-
-  @override
-  _AnimatedPositionFABState createState() => _AnimatedPositionFABState();
-}
-
-class _AnimatedPositionFABState extends State<AnimatedPositionFAB> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+// class AnimatedPositionFAB extends StatefulWidget {
+//   const AnimatedPositionFAB({Key? key}) : super(key: key);
+//
+//   @override
+//   _AnimatedPositionFABState createState() => _AnimatedPositionFABState();
+// }
+//
+// class _AnimatedPositionFABState extends State<AnimatedPositionFAB> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
 
 
 
@@ -114,7 +129,7 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 3),
     vsync: this,
-  )..repeat(reverse: true);
+  )..forward();
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
     begin: Offset(0.0,0.0),
     end: const Offset(0.0,4.0),
@@ -125,12 +140,13 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(context);
     return SlideTransition(
       position: _offsetAnimation,
       child: Padding(
@@ -139,8 +155,10 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
             heroTag: 'settings',
             child: Icon(CustomIcons.cog_1),
             onPressed: () {
-              print('Pressed it!');
-              Navigator.popAndPushNamed(context, '/settings');
+              print('Pressed it test1');
+              print(context);
+              print('Pressed it test2');
+              Navigator.pushNamed(context, '/home');
             },
           ),
       ),

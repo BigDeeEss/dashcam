@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
+
+
 import './home.dart';
 
 class Settings extends StatelessWidget {
+  FloatingActionButtonLocation fabLocation = FloatingActionButtonLocation.endDocked;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +36,12 @@ class Settings extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+        tooltip: 'Create',
+      ),
+      floatingActionButtonLocation: fabLocation,
     );
   }
 }
