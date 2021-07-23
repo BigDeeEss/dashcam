@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
         body: Stack(
           children: [
             Align(
-              alignment: Alignment.bottomRight,
+              alignment: Alignment.topRight,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
@@ -68,7 +68,10 @@ class Home extends StatelessWidget {
             //     onPressed: () {},
             //   ),
             // ),
-            SlideTransitionFAB(),
+            Align(
+              alignment: Alignment.topRight,
+              child: SlideTransitionFAB(),
+            ),
           ],
         ),
       ),
@@ -109,7 +112,7 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
     vsync: this,
   )..repeat(reverse: true);
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
-    begin: Offset(0.0,-1.0),
+    begin: Offset(0.0,0.0),
     end: const Offset(0.0,3.0),
   ).animate(CurvedAnimation(
     parent: _controller,
