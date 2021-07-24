@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 
 import './home.dart';
+import './newhome.dart';
 
 class Settings extends StatelessWidget {
   FloatingActionButtonLocation fabLocation = FloatingActionButtonLocation.endDocked;
@@ -29,9 +30,9 @@ class Settings extends StatelessWidget {
                 onPressed:(){
                   // Navigate to Settings() using route specified in DashCam()...
                   // Navigator.pushNamed(context, '/files');
-                  // Navigator.popAndPushNamed(context, '/settings');
+                  Navigator.popAndPushNamed(context, '/newhome');
                 },
-                child: Text('Settings')
+                child: Text('NewHome')
             ),
           ],
         ),
