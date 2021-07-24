@@ -50,7 +50,7 @@ class _NewHomeState extends State<NewHome> with TickerProviderStateMixin {
                   Scaffold.of(context).showSnackBar(
                       SnackBar(content: Text('Button is pressed'))
                   );
-                  Navigator.pushNamed(context, '/settings');
+                  Navigator.popAndPushNamed(context, '/settings');
                 },
               ),
             )
