@@ -8,14 +8,15 @@ import 'package:flutter/material.dart';
 
 
 class BasePage extends StatefulWidget {
-  BasePage({
+
+  //  Constructor for BasePage.
+  const BasePage({
     this.title,
     Key? key,
-  }) : super(key: key) {
-    this.title = this.title ?? 'Test fix';
-  }
+  }) : super(key: key);
 
-  String? title;
+  //  [title] of screen.
+  final String? title;
 
   @override
   _BasePageState createState() => _BasePageState();
@@ -24,6 +25,7 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
+    // widget.title ?? 'Test' evaluates to 'Test' if widget.title is null.
     print(widget.title ?? 'Test');
     return Container();
   }
