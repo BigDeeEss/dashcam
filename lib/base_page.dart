@@ -4,30 +4,59 @@
 import 'package:flutter/material.dart';
 
 
-//  Import project-specific files.
-
-
+//  StatefulWidget which implements a basic page design layout.
 class BasePage extends StatefulWidget {
 
-  //  Constructor for BasePage.
+  //  Constructor for [BasePage].
   const BasePage({
+    //  Define optional parameter.
     this.title,
+
     Key? key,
   }) : super(key: key);
 
-  //  [title] of screen.
+  //  [title] of screen. Needs to be nullable since title is optional.
   final String? title;
 
   @override
   _BasePageState createState() => _BasePageState();
 }
 
+//  State class associated with BasePage widget.
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
-    // widget.title ?? 'Test' evaluates to 'Test' if widget.title is null.
-    print(widget.title ?? 'Test');
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        //  Display title or '' in the case where title is null.
+        title: Text(widget.title ?? ''),
+
+        //  Remove the 'leading' widget associated with AppBar() class.
+        automaticallyImplyLeading: false,
+      ),
+
+      //  Use Builder() widget because it is not possible to get the appBar
+      //  height from the current BuildContext when it doesn't yet include the
+      //  Scaffold() class being returned by this widget.
+      bottomNavigationBar: Builder(
+        builder: (BuildContext context) {
+          return BottomAppBar(
+            color: Colors.blue,
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  //  Set height of the BottomAppBar() class variable using
+                  //  SizedBox(). Get [height] from [context] by first
+                  //  extracting the immediate Scaffold(), and then getting
+                  //  the value for appBarMaxHeight.
+                  height: Scaffold.of(context).appBarMaxHeight,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }
 

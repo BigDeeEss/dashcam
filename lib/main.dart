@@ -50,8 +50,8 @@ class DashCam extends StatelessWidget {
         // // Specify route => Files() route...
         // '/files': (context) => Files(),
 
-        //  Specify route => Settings() route...
-        '/settings': (context) => BasePage(),
+        //  Specify route to => Settings() route...
+        '/settings': (context) => BasePage(title: 'Settings'),
       },
     );
   }
