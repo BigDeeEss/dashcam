@@ -9,7 +9,15 @@ import './external/lib/custom_icons.dart';
 
 //  StatefulWidget which implements a dynamic button.
 class Button extends StatefulWidget {
-  const Button({Key? key}) : super(key: key);
+  const Button(
+    //  Define optional parameter.
+    this.identifier,
+
+    {Key? key}
+  ) : super(key: key);
+
+  //  [identifier] of screen. Needs to be nullable since title is optional.
+  final String identifier;
 
   @override
   _ButtonState createState() => _ButtonState();

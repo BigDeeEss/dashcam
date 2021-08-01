@@ -62,7 +62,12 @@ class _BasePageState extends State<BasePage> {
         },
       ),
 
-      body: Button()
+      body: Stack(
+        children: [
+          Button('home'),
+          Button('files'),
+        ]
+      ),
     );
   }
 }
