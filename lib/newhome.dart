@@ -45,23 +45,28 @@ class _NewHomeState extends State<NewHome> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text('Woolha.com Flutter Tutorial'),
       ),
-      body: Builder(
-          builder: (context) => Center(
-            child: SlideTransition(
-              position: _animation,
-              transformHitTests: true,
-              child: RaisedButton(
-                child: Text('Woolha.com'),
-                onPressed: () {
-                  Scaffold.of(context).showSnackBar(
-                      SnackBar(content: Text('Button is pressed'))
-                  );
-                  Navigator.popAndPushNamed(context, '/settings');
-                },
-              ),
-            )
-          )
+      body: Stack(
+        children: <Widget>[
+          Builder(
+              builder: (context) => Center(
+                  child: SlideTransition(
+                    position: _animation,
+                    transformHitTests: true,
+                    child: RaisedButton(
+                      child: Text('Woolha.com'),
+                      onPressed: () {
+                        Scaffold.of(context).showSnackBar(
+                            SnackBar(content: Text('Button is pressed'))
+                        );
+                        Navigator.popAndPushNamed(context, '/settings');
+                      },
+                    ),
+                  )
+              )
+          ),
+        ],
       ),
+
     );
   }
 }

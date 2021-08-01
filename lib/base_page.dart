@@ -4,6 +4,11 @@
 import 'package:flutter/material.dart';
 
 
+// Import project-specific files.
+import './button.dart';
+import './screen_positions.dart';
+
+
 //  StatefulWidget which implements a basic page design layout.
 class BasePage extends StatefulWidget {
 
@@ -32,7 +37,7 @@ class _BasePageState extends State<BasePage> {
         title: Text(widget.title ?? ''),
 
         //  Remove the 'leading' widget associated with AppBar() class.
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
       ),
 
       //  Use Builder() widget because it is not possible to get the appBar
@@ -56,6 +61,8 @@ class _BasePageState extends State<BasePage> {
           );
         },
       ),
+
+      body: Button()
     );
   }
 }
