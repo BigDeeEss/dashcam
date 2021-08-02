@@ -35,8 +35,6 @@ class Home extends StatelessWidget {
                       heroTag: 'settings1',
                       child: Icon(CustomIcons.cog_1),
                       onPressed: () {
-                        print('Pressed it!');
-                        print(context);
                         Navigator.popAndPushNamed(context, '/settings');},
                     ),
                   ),
@@ -63,7 +61,6 @@ class Home extends StatelessWidget {
                       heroTag: 'photos',
                       child: Icon(CustomIcons.photo_video),
                       onPressed: () {
-                        print('Pressed it!');
                         Navigator.popAndPushNamed(context, '/settings');
                       },
                     ),
@@ -89,7 +86,6 @@ class Home extends StatelessWidget {
           heroTag: 'settings3425',
           child: Icon(CustomIcons.cog_1),
           onPressed: () {
-            print('Pressed it!');
             Navigator.pushNamed(context, '/home');
           },
         ),
@@ -146,7 +142,6 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
 
   @override
   Widget build(BuildContext context) {
-    print(context);
     return SlideTransition(
       position: _offsetAnimation,
       child: Padding(
@@ -155,9 +150,6 @@ class _SlideTransitionFABState extends State<SlideTransitionFAB>
             heroTag: 'settings',
             child: Icon(CustomIcons.cog_1),
             onPressed: () {
-              print('Pressed it test1');
-              print(context);
-              print('Pressed it test2');
               Navigator.pushNamed(context, '/home');
             },
           ),

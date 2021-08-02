@@ -12,12 +12,14 @@ class Button extends StatefulWidget {
   const Button(
     //  Define optional parameter.
     this.identifier,
+    this.shift,
 
     {Key? key}
   ) : super(key: key);
 
   //  [identifier] of screen. Needs to be nullable since title is optional.
   final String identifier;
+  final double shift;
 
   @override
   _ButtonState createState() => _ButtonState();
@@ -35,16 +37,16 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 5300),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
     )..forward();
 
     _animation = Tween<Offset>(
-      begin: const Offset(1.0, -5.0),
-      end: const Offset(1.0, 0.0),
+      begin: Offset(3.0, -3.0 - widget.shift),
+      end: Offset(3.0, 0.0 - widget.shift),
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.easeInCubic,
+      curve: Curves.elasticOut,
     ));
   }
 
@@ -64,7 +66,7 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
               position: _animation,
               transformHitTests: true,
               child: FloatingActionButton(
-                heroTag: 'eject',
+                heroTag: widget.identifier,
                 child: Icon(CustomIcons.eject),
                 onPressed: () {
                   Navigator.popAndPushNamed(context, '/home');
