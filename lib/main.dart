@@ -9,6 +9,7 @@ import './home.dart';
 import './settings.dart';
 import './newhome.dart';
 import './base_page.dart';
+import './route_specs.dart';
 
 
 //  App start point.
@@ -39,7 +40,7 @@ class DashCam extends StatelessWidget {
       routes: {
         //  Specify initial route (used at time of initial widget build).
         //  Can be overridden by initialRoute.
-        '/': (context) => BasePage(title: 'Home'),
+        '/': (context) => BasePage(routeSpec: home),
 
         //  Specify route => Home() route...
         '/home': (context) => const Home(),
@@ -51,7 +52,7 @@ class DashCam extends StatelessWidget {
         // '/files': (context) => Files(),
 
         //  Specify route to => Settings() route...
-        '/settings': (context) => BasePage(title: 'Settings'),
+        '/settings': (context) => BasePage(routeSpec: settings),
       },
     );
   }

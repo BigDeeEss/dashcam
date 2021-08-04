@@ -35,7 +35,8 @@ class Home extends StatelessWidget {
                       heroTag: 'settings1',
                       child: Icon(CustomIcons.cog_1),
                       onPressed: () {
-                        Navigator.popAndPushNamed(context, '/settings');},
+                        Navigator.popAndPushNamed(context, '/settings');
+                      },
                     ),
                   ),
                   SizedBox(
@@ -47,7 +48,9 @@ class Home extends StatelessWidget {
                       child: FloatingActionButton(
                         heroTag: 'eject',
                         child: Icon(CustomIcons.eject),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.popAndPushNamed(context, '/home');
+                        },
                       ),
                     ),
                     // FloatingActionButton(

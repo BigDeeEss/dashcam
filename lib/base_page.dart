@@ -6,22 +6,22 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import './button.dart';
+import './route_specs.dart';
 import './screen_positions.dart';
 
 
 //  StatefulWidget which implements a basic page design layout.
 class BasePage extends StatefulWidget {
-
   //  Constructor for [BasePage].
   const BasePage({
     //  Define optional parameter.
-    this.title,
+    this.routeSpec,
 
     Key? key,
   }) : super(key: key);
 
   //  [title] of screen. Needs to be nullable since title is optional.
-  final String? title;
+  final RouteSpec? routeSpec;
 
   @override
   _BasePageState createState() => _BasePageState();
@@ -31,10 +31,11 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
+    String title = (widget.routeSpec == null) ? '' : widget.routeSpec!.title;
     return Scaffold(
       appBar: AppBar(
         //  Display title or '' in the case where title is null.
-        title: Text(widget.title ?? ''),
+        title: Text(title),
 
         //  Remove the 'leading' widget associated with AppBar() class.
         // automaticallyImplyLeading: false,
