@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 
 // Import project-specific files.
-import './external/lib/custom_icons.dart';
-import './home.dart';
-import './settings.dart';
+import 'package:dashcam/external/lib/custom_icons.dart';
+import 'package:dashcam/home.dart';
+import 'package:dashcam/settings.dart';
 
 
 class Home extends StatelessWidget {

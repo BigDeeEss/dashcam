@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 
 //  Import project-specific files.
-import './home.dart';
-import './settings.dart';
-import './newhome.dart';
-import './base_page.dart';
-import './route_specs.dart';
+import 'package:dashcam/home.dart';
+import 'package:dashcam/settings.dart';
+import 'package:dashcam/newhome.dart';
+import 'package:dashcam/base_page.dart';
+import 'package:dashcam/route_specs.dart';
 
 
 //  App start point.
@@ -32,7 +32,7 @@ class DashCam extends StatelessWidget {
 
       //  Define an initialRoute which is executed on initial widget build
       //  and can be used to overrule the '/' route below.
-      initialRoute: '/home',
+      initialRoute: '/',
 
       //  Define all routes in DashCam app; note this is a map/dictionary.
       //  DashCam screen layout is simple with each route having the same

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 
-import './home.dart';
-import './newhome.dart';
+import 'package:dashcam/home.dart';
+import 'package:dashcam/newhome.dart';
 
 class Settings extends StatelessWidget {
   FloatingActionButtonLocation fabLocation = FloatingActionButtonLocation.endDocked;

@@ -2,7 +2,7 @@
 
 // Import flutter packages.
 import 'package:flutter/material.dart';
-import './settings.dart';
+import 'package:dashcam/settings.dart';
 
 class NewHome extends StatefulWidget {
   const NewHome({Key? key}) : super(key: key);

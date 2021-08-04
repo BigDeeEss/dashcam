@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import './external/lib/custom_icons.dart';
+import 'package:dashcam/external/lib/custom_icons.dart';
 
 
 //  StatefulWidget which implements a dynamic button.

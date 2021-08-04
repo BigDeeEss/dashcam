@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 
 // Import project-specific files.
-import './button.dart';
-import './route_specs.dart';
-import './screen_positions.dart';
+import 'package:dashcam/button.dart';
+import 'package:dashcam/route_specs.dart';
+import 'package:dashcam/screen_positions.dart';
 
 
 //  StatefulWidget which implements a basic page design layout.
