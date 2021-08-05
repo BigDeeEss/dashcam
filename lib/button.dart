@@ -5,20 +5,21 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:dashcam/external/lib/custom_icons.dart';
+import 'package:dashcam/route_specs.dart';
 
 
 //  StatefulWidget which implements a dynamic button.
 class Button extends StatefulWidget {
-  const Button(
+  const Button({
     //  Define optional parameter.
-    this.identifier,
-    this.shift,
+    required this.routeSpec,
+    required this.shift,
 
-    {Key? key}
-  ) : super(key: key);
+    Key? key,
+  }) : super(key: key);
 
-  //  [identifier] of screen. Needs to be nullable since title is optional.
-  final String identifier;
+  //  [routeSpec] of screen. Needs to be nullable since title is optional.
+  final RouteSpec routeSpec;
   final double shift;
 
   @override
@@ -66,10 +67,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
               position: _animation,
               transformHitTests: true,
               child: FloatingActionButton(
-                heroTag: widget.identifier,
-                child: Icon(CustomIcons.eject),
+                heroTag: widget.routeSpec.title,
+                child: widget.routeSpec.icon,
                 onPressed: () {
-                  Navigator.popAndPushNamed(context, '/home');
+                  Navigator.popAndPushNamed(context, widget.routeSpec.route);
                 },
               ),
               // child: RaisedButton(

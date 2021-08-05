@@ -32,7 +32,7 @@ class DashCam extends StatelessWidget {
 
       //  Define an initialRoute which is executed on initial widget build.
       //  Optional and can be used to overrule the '/' route below.
-      initialRoute: '/newhome',
+      initialRoute: '/',
 
       //  Define all routes in DashCam app. Note this is a map/dictionary.
       //  DashCam screen layout is simple with each route having the same
@@ -43,10 +43,10 @@ class DashCam extends StatelessWidget {
         '/': (context) => BasePage(routeSpec: home),
 
         //  Specify route => Home() route...
-        '/home': (context) => const Home(),
+        '/home': (context) =>  BasePage(routeSpec: home),
 
-        //  Specify route => Home() route...
-        '/newhome': (context) => const NewHome(),
+        // //  Specify route => Home() route...
+        // '/newhome': (context) => const NewHome(),
 
         // // Specify route => Files() route...
         // '/files': (context) => Files(),
