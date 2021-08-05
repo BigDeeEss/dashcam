@@ -22,7 +22,7 @@ class RouteSpec {
 
   //  Toggles the 'leading' widget associated with basePage(...).
   //  Set 'true' only for development. Note that the 'leading back arrow'
-  //  may not be displayed depending on whether there is a page available.
+  //  may not be displayed if there is no page available.
   final bool automaticallyImplyLeading;
 
   //  []

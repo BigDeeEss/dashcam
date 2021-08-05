@@ -4,21 +4,22 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:dashcam/external/lib/custom_icons.dart';
+// import 'package:dashcam/external/lib/custom_icons.dart';
 import 'package:dashcam/route_specs.dart';
 
 
 //  StatefulWidget which implements a dynamic button.
 class Button extends StatefulWidget {
+  //  Constructor for [Button].
   const Button({
-    //  Define optional parameter.
     required this.routeSpec,
     required this.shift,
 
     Key? key,
   }) : super(key: key);
 
-  //  [routeSpec] of screen. Needs to be nullable since title is optional.
+  //  RoutSpec defines all route-specific information, e.g.: icon,
+  //  route, page title.
   final RouteSpec routeSpec;
   final double shift;
 
@@ -67,21 +68,14 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
               position: _animation,
               transformHitTests: true,
               child: FloatingActionButton(
+                // Use routeSpec.title for heroTag.
                 heroTag: widget.routeSpec.title,
                 child: widget.routeSpec.icon,
                 onPressed: () {
+                  //  Get rid of top route  and replace with new.
                   Navigator.popAndPushNamed(context, widget.routeSpec.route);
                 },
               ),
-              // child: RaisedButton(
-              //   child: Text('Woolha.com'),
-              //   onPressed: () {
-              //     Scaffold.of(context).showSnackBar(
-              //         SnackBar(content: Text('Button is pressed'))
-              //     );
-              //     Navigator.popAndPushNamed(context, '/settings');
-              //   },
-              // ),
             )
           )
         ),
