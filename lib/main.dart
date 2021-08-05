@@ -23,18 +23,18 @@ class DashCam extends StatelessWidget {
   //  in 'runApp(const DashCam(...));' above.
   const DashCam({Key? key}) : super(key: key);
 
-  //  Root widget of DashCam project defining the first widget built
-  //  by runApp(...).
+  //  Root widget of DashCam project. It defines the first
+  //  widget built by runApp(...).
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DashCam',
 
-      //  Define an initialRoute which is executed on initial widget build
-      //  and can be used to overrule the '/' route below.
-      initialRoute: '/',
+      //  Define an initialRoute which is executed on initial widget build.
+      //  Optional and can be used to overrule the '/' route below.
+      initialRoute: '/newhome',
 
-      //  Define all routes in DashCam app; note this is a map/dictionary.
+      //  Define all routes in DashCam app. Note this is a map/dictionary.
       //  DashCam screen layout is simple with each route having the same
       //  base page layout.
       routes: {

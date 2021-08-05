@@ -10,18 +10,17 @@ import 'package:dashcam/route_specs.dart';
 import 'package:dashcam/screen_positions.dart';
 
 
-//  StatefulWidget which implements a basic page design layout.
+//  StatefulWidget implementing a basic page layout design.
 class BasePage extends StatefulWidget {
   //  Constructor for [BasePage].
   const BasePage({
-    //  Define optional parameter.
-    this.routeSpec,
+    required this.routeSpec,
 
     Key? key,
   }) : super(key: key);
 
-  //  [title] of screen. Needs to be nullable since title is optional.
-  final RouteSpec? routeSpec;
+  //  Identifier for accessing route-specific information.
+  final RouteSpec routeSpec;
 
   @override
   _BasePageState createState() => _BasePageState();
@@ -31,19 +30,18 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
-    String title = (widget.routeSpec == null) ? '' : widget.routeSpec!.title;
     return Scaffold(
       appBar: AppBar(
-        //  Display title or '' in the case where title is null.
-        title: Text(title),
+        title: Text(widget.routeSpec.title),
 
         //  Remove the 'leading' widget associated with AppBar() class.
-        // automaticallyImplyLeading: false,
+        automaticallyImplyLeading: widget.routeSpec.automaticallyImplyLeading,
+        // automaticallyImplyLeading: true,
       ),
 
-      //  Use Builder() widget because it is not possible to get the appBar
+      //  Use Builder(...) widget because it is not possible to get the appBar
       //  height from the current BuildContext when it doesn't yet include the
-      //  Scaffold() class being returned by this widget.
+      //  Scaffold(...) class being returned by this widget.
       bottomNavigationBar: Builder(
         builder: (BuildContext context) {
           return BottomAppBar(
@@ -51,9 +49,9 @@ class _BasePageState extends State<BasePage> {
             child: Row(
               children: <Widget>[
                 SizedBox(
-                  //  Set height of the BottomAppBar() class variable using
-                  //  SizedBox(). Get [height] from [context] by first
-                  //  extracting the immediate Scaffold(), and then getting
+                  //  Set height of the BottomAppBar(...) class variable using
+                  //  SizedBox(...). Get height from [context] by first
+                  //  extracting the immediate Scaffold(...), and then getting
                   //  the value for appBarMaxHeight.
                   height: Scaffold.of(context).appBarMaxHeight,
                 ),
