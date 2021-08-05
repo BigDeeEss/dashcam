@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 // Import project-specific files.
 import 'package:dashcam/button.dart';
 import 'package:dashcam/route_specs.dart';
-import 'package:dashcam/screen_positions.dart';
 
 
 //  StatefulWidget implementing a basic page layout design.
@@ -19,7 +18,7 @@ class BasePage extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  //  Identifier for accessing route-specific information.
+  //  RoutSpec defines all route-specific information.
   final RouteSpec routeSpec;
 
   @override
@@ -34,9 +33,8 @@ class _BasePageState extends State<BasePage> {
       appBar: AppBar(
         title: Text(widget.routeSpec.title),
 
-        //  Remove the 'leading' widget associated with AppBar() class.
+        //  Remove 'leading' widget associated with AppBar() class.
         automaticallyImplyLeading: widget.routeSpec.automaticallyImplyLeading,
-        // automaticallyImplyLeading: true,
       ),
 
       //  Use Builder(...) widget because it is not possible to get the appBar
@@ -63,8 +61,14 @@ class _BasePageState extends State<BasePage> {
 
       body: Stack(
         children: [
-          Button('home', 0.0),
-          Button('files', 2.0),
+          Button(
+            routeSpec: home,
+            shift: 0.0,
+          ),
+          Button(
+            routeSpec: settings,
+            shift: 2.0,
+          ),
         ]
       ),
     );

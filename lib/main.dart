@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 
 //  Import project-specific files.
-import 'package:dashcam/home.dart';
-import 'package:dashcam/settings.dart';
-import 'package:dashcam/newhome.dart';
 import 'package:dashcam/base_page.dart';
 import 'package:dashcam/route_specs.dart';
 
@@ -30,28 +27,21 @@ class DashCam extends StatelessWidget {
     return MaterialApp(
       title: 'DashCam',
 
-      //  Define an initialRoute which is executed on initial widget build.
-      //  Optional and can be used to overrule the '/' route below.
-      initialRoute: '/newhome',
+      //  [initialRoute] is executed when building the initial widget.
+      //  [initialRoute] is optional. It overrules the '/' route below.
+      initialRoute: '/',
 
-      //  Define all routes in DashCam app. Note this is a map/dictionary.
-      //  DashCam screen layout is simple with each route having the same
-      //  base page layout.
+      //  Define all routes in DashCam app. DashCam uses a simple screen
+      //  layout with the layout of each page defined by [BasePage].
       routes: {
         //  Specify initial route (used at time of initial widget build).
         //  Can be overridden by initialRoute.
         '/': (context) => BasePage(routeSpec: home),
 
-        //  Specify route => Home() route...
-        '/home': (context) => const Home(),
+        //  Specify route => Home...
+        '/home': (context) =>  BasePage(routeSpec: home),
 
-        //  Specify route => Home() route...
-        '/newhome': (context) => const NewHome(),
-
-        // // Specify route => Files() route...
-        // '/files': (context) => Files(),
-
-        //  Specify route to => Settings() route...
+        //  Specify route to => Settings...
         '/settings': (context) => BasePage(routeSpec: settings),
       },
     );
