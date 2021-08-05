@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 
 //  Import project-specific files.
-// import 'package:dashcam/home.dart';
-// import 'package:dashcam/settings.dart';
-// import 'package:dashcam/newhome.dart';
 import 'package:dashcam/base_page.dart';
 import 'package:dashcam/route_specs.dart';
 

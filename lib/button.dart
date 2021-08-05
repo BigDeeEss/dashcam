@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-// import 'package:dashcam/external/lib/custom_icons.dart';
 import 'package:dashcam/route_specs.dart';
 
 
