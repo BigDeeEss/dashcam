@@ -69,6 +69,10 @@ class _BasePageState extends State<BasePage> {
             routeSpec: settings,
             shift: 2.0,
           ),
+          Button(
+            routeSpec: eject,
+            shift: 4.0,
+          ),
         ]
       ),
     );

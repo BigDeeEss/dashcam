@@ -43,7 +43,7 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     )..forward();
 
     _animation = Tween<Offset>(
-      begin: Offset(3.0, -3.0 - widget.shift),
+      begin: Offset(3.0, -6.0 - widget.shift),
       end: Offset(3.0, 0.0 - widget.shift),
     ).animate(CurvedAnimation(
       parent: _controller,

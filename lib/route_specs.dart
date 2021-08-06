@@ -46,3 +46,11 @@ RouteSpec home = RouteSpec(
   icon: Icon(CustomIcons.home),
   route: '/home'
 );
+
+
+RouteSpec eject = RouteSpec(
+  title: 'Eject',
+  automaticallyImplyLeading: true,
+  icon: Icon(CustomIcons.eject),
+  route: '/home'
+);
