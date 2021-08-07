@@ -1,20 +1,16 @@
-
-
 //  Import flutter packages.
 import 'package:flutter/material.dart';
-
 
 // Import project-specific files.
 import 'package:dashcam/button.dart';
 import 'package:dashcam/route_specs.dart';
-
+import 'package:dashcam/app_settings.dart' as appSettings;
 
 //  StatefulWidget implementing a basic page layout design.
 class BasePage extends StatefulWidget {
   //  Constructor for [BasePage].
   const BasePage({
     required this.routeSpec,
-
     Key? key,
   }) : super(key: key);
 
@@ -34,7 +30,7 @@ class _BasePageState extends State<BasePage> {
         title: Text(widget.routeSpec.title),
 
         //  Remove 'leading' widget associated with AppBar() class.
-        automaticallyImplyLeading: widget.routeSpec.automaticallyImplyLeading,
+        automaticallyImplyLeading: appSettings.automaticallyImplyLeading,
       ),
 
       //  Use Builder(...) widget because it is not possible to get the appBar
@@ -62,9 +58,12 @@ class _BasePageState extends State<BasePage> {
       //  Use a Container-Align-Column combination to locate the button list.
       body: Container(
         child: Align(
-          alignment: Alignment.topRight,
+          alignment: appSettings.alignment,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: (appSettings.alignment.y >= 0)
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(16.0),
