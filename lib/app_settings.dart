@@ -13,7 +13,18 @@ const bool automaticallyImplyLeading = false;
 
 /// [buttonAlignment] defines the anchor point for FAB placement in BasePage.
 const buttonAlignment = Alignment.bottomRight;
-// const alignment = Alignment.topLeft;
+
+/// [buttonPaddingDown] defines the padding for downward direction
+/// button positioning associated with BasePage.
+const EdgeInsetsDirectional buttonPaddingDown = EdgeInsetsDirectional.fromSTEB(
+    buttonPaddingCrossAxis,
+    buttonPaddingMainAxis,
+    buttonPaddingCrossAxis,
+    buttonPaddingMainAxisExtra);
+
+/// [buttonPaddingCrossAxis] defines the cross axis padding between buttons
+/// associated with BasePage.
+const double buttonPaddingCrossAxis = 15;
 
 /// [buttonPaddingMainAxis] defines the main axis padding between buttons
 /// associated with BasePage.
@@ -23,22 +34,10 @@ const double buttonPaddingMainAxis = 15.0;
 /// direction between buttons associated with BasePage.
 const double buttonPaddingMainAxisExtra = 10.0;
 
-/// [buttonPaddingCrossAxis] defines the cross axis padding between buttons
-/// associated with BasePage.
-const double buttonPaddingCrossAxis = 15;
-
-/// [upButtonPadding] defines the padding for downward direction
+/// [buttonPaddingUp] defines the padding for downward direction
 /// button positioning associated with BasePage.
-const EdgeInsetsDirectional upButtonPadding = EdgeInsetsDirectional.fromSTEB(
+const EdgeInsetsDirectional buttonPaddingUp = EdgeInsetsDirectional.fromSTEB(
     buttonPaddingCrossAxis,
     buttonPaddingMainAxisExtra,
     buttonPaddingCrossAxis,
     buttonPaddingMainAxis);
-
-/// [downButtonPadding] defines the padding for downward direction
-/// button positioning associated with BasePage.
-const EdgeInsetsDirectional downButtonPadding = EdgeInsetsDirectional.fromSTEB(
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxis,
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxisExtra);

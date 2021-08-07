@@ -69,8 +69,8 @@ class _BasePageState extends State<BasePage> {
               Padding(
                 // padding: EdgeInsets.all(16.0),
                 padding: (appSettings.buttonAlignment.y < 0)
-                    ? appSettings.downButtonPadding
-                    : appSettings.upButtonPadding,
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
                 child: Button(
                   routeSpec: home,
                 ),
@@ -78,8 +78,8 @@ class _BasePageState extends State<BasePage> {
               Padding(
                 // padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                 padding: (appSettings.buttonAlignment.y < 0)
-                    ? appSettings.downButtonPadding
-                    : appSettings.upButtonPadding,
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
                 child: Button(
                   routeSpec: settings,
                 ),
@@ -87,8 +87,8 @@ class _BasePageState extends State<BasePage> {
               Padding(
                 // padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                 padding: (appSettings.buttonAlignment.y < 0)
-                    ? appSettings.downButtonPadding
-                    : appSettings.upButtonPadding,
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
                 // padding: EdgeInsets.all(16.0),
                 child: Button(
                   routeSpec: eject,
