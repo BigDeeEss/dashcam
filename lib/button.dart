@@ -21,11 +21,11 @@ class Button extends StatefulWidget {
 }
 
 class _ButtonState extends State<Button> with TickerProviderStateMixin {
-  //  Define an animation controller.
-  late AnimationController _controller;
-
   //  Define the type of animation, in this case between two Offset() classes.
   late Animation<Offset> _animation;
+
+  //  Define an animation controller.
+  late AnimationController _controller;
 
   void Function()? onPressed(BuildContext context) {
     print('Pressed Button onpressed...');

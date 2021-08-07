@@ -6,15 +6,15 @@ import 'package:dashcam/button.dart';
 import 'package:dashcam/route_specs.dart';
 import 'package:dashcam/app_settings.dart' as appSettings;
 
-//  StatefulWidget implementing a basic page layout design.
+/// StatefulWidget implements a basic page layout design.
 class BasePage extends StatefulWidget {
-  //  Constructor for [BasePage].
   const BasePage({
     required this.routeSpec,
     Key? key,
   }) : super(key: key);
 
-  //  RoutSpec defines all route-specific information.
+  /// [routeSpec] contains all route-specific information.
+  /// E.g.: FAB icon, FAB activation action, page title.
   final RouteSpec routeSpec;
 
   @override
@@ -47,7 +47,8 @@ class _BasePageState extends State<BasePage> {
                   //  SizedBox(...). Get height from [context] by first
                   //  extracting the immediate Scaffold(...), and then getting
                   //  the value for appBarMaxHeight.
-                  height: Scaffold.of(context).appBarMaxHeight,
+                  height: (Scaffold.of(context).appBarMaxHeight ?? 0.0) *
+                      appSettings.appBarHeightScaleFactor,
                 ),
               ],
             ),
@@ -58,27 +59,37 @@ class _BasePageState extends State<BasePage> {
       //  Use a Container-Align-Column combination to locate the button list.
       body: Container(
         child: Align(
-          alignment: appSettings.alignment,
+          alignment: appSettings.buttonAlignment,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: (appSettings.alignment.y >= 0)
-                ? MainAxisAlignment.end
-                : MainAxisAlignment.start,
+            verticalDirection: (appSettings.buttonAlignment.y < 0)
+                ? VerticalDirection.down
+                : VerticalDirection.up,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(16.0),
+                // padding: EdgeInsets.all(16.0),
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.downButtonPadding
+                    : appSettings.upButtonPadding,
                 child: Button(
                   routeSpec: home,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(16.0),
+                // padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.downButtonPadding
+                    : appSettings.upButtonPadding,
                 child: Button(
                   routeSpec: settings,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(16.0),
+                // padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.downButtonPadding
+                    : appSettings.upButtonPadding,
+                // padding: EdgeInsets.all(16.0),
                 child: Button(
                   routeSpec: eject,
                 ),

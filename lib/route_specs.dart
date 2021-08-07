@@ -13,25 +13,27 @@ class RouteSpec {
     required this.onPressed,
   });
 
-  //  [title] of screen appearing on appBar.
-  final String title;
-
   //  [icon] is displayed on the FAB associated with [RouteSpec].
   final Icon icon;
+
+  //  [onPressed] efines the action to be taken on activation
+  //  of the associated FAB.
+  final void Function(BuildContext context) onPressed;
 
   //  [route] defines which page is displayed when FAB associated
   //  with RouteSpec is activated.
   final String route;
 
-  final void Function(BuildContext context) onPressed;
+  //  [title] of screen appearing on appBar.
+  final String title;
 }
 
-RouteSpec settings = RouteSpec(
-  title: 'Settings',
-  icon: Icon(CustomIcons.cog_1),
-  route: '/settings',
+RouteSpec eject = RouteSpec(
+  title: 'Eject',
+  icon: Icon(CustomIcons.eject),
+  route: '/home',
   onPressed: (context) {
-    Navigator.popAndPushNamed(context, '/settings');
+    Navigator.pop(context);
   },
 );
 
@@ -44,11 +46,11 @@ RouteSpec home = RouteSpec(
   },
 );
 
-RouteSpec eject = RouteSpec(
-  title: 'Eject',
-  icon: Icon(CustomIcons.eject),
-  route: '/home',
+RouteSpec settings = RouteSpec(
+  title: 'Settings',
+  icon: Icon(CustomIcons.cog_1),
+  route: '/settings',
   onPressed: (context) {
-    Navigator.pop(context);
+    Navigator.popAndPushNamed(context, '/settings');
   },
 );
