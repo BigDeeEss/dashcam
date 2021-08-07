@@ -1,19 +1,14 @@
-
-
 //  Import flutter packages.
 import 'package:flutter/material.dart';
-
 
 //  Import project-specific files.
 import 'package:dashcam/base_page.dart';
 import 'package:dashcam/route_specs.dart';
 
-
 //  App start point.
 void main() {
   runApp(const DashCam());
 }
-
 
 class DashCam extends StatelessWidget {
   //  Default constructor required because there is a const keyword
@@ -39,7 +34,7 @@ class DashCam extends StatelessWidget {
         '/': (context) => BasePage(routeSpec: home),
 
         //  Specify route => Home...
-        '/home': (context) =>  BasePage(routeSpec: home),
+        '/home': (context) => BasePage(routeSpec: home),
 
         //  Specify route to => Settings...
         '/settings': (context) => BasePage(routeSpec: settings),
@@ -47,4 +42,3 @@ class DashCam extends StatelessWidget {
     );
   }
 }
-

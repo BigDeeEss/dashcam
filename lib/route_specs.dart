@@ -1,12 +1,8 @@
-
-
 //  Import flutter packages.
 import 'package:flutter/material.dart';
 
-
 // Import project-specific files.
 import 'package:dashcam/lib/custom_icons.dart';
-
 
 class RouteSpec {
   //  Constructor for [routeSpec].
@@ -30,7 +26,6 @@ class RouteSpec {
   final void Function(BuildContext context) onPressed;
 }
 
-
 RouteSpec settings = RouteSpec(
   title: 'Settings',
   icon: Icon(CustomIcons.cog_1),
@@ -40,7 +35,6 @@ RouteSpec settings = RouteSpec(
   },
 );
 
-
 RouteSpec home = RouteSpec(
   title: 'Home',
   icon: Icon(CustomIcons.home),
@@ -49,7 +43,6 @@ RouteSpec home = RouteSpec(
     Navigator.popAndPushNamed(context, '/home');
   },
 );
-
 
 RouteSpec eject = RouteSpec(
   title: 'Eject',

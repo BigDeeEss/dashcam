@@ -1,18 +1,14 @@
-
-
 //  Import flutter packages.
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:dashcam/route_specs.dart';
 
-
 //  StatefulWidget which implements a dynamic Button.
 class Button extends StatefulWidget {
   //  Constructor for [Button].
   const Button({
     required this.routeSpec,
-
     Key? key,
   }) : super(key: key);
 
@@ -64,17 +60,15 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     return Stack(
       children: <Widget>[
         Builder(
-          builder: (context) => SlideTransition(
-            position: _animation,
-            transformHitTests: true,
-            child: FloatingActionButton(
-              // Use routeSpec.title for heroTag.
-              heroTag: widget.routeSpec.title,
-              child: widget.routeSpec.icon,
-              onPressed: () => widget.routeSpec.onPressed(context)
-            ),
-          )
-        ),
+            builder: (context) => SlideTransition(
+                  position: _animation,
+                  transformHitTests: true,
+                  child: FloatingActionButton(
+                      // Use routeSpec.title for heroTag.
+                      heroTag: widget.routeSpec.title,
+                      child: widget.routeSpec.icon,
+                      onPressed: () => widget.routeSpec.onPressed(context)),
+                )),
       ],
     );
   }
