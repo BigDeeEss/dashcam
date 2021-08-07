@@ -12,7 +12,6 @@ class Button extends StatefulWidget {
   //  Constructor for [Button].
   const Button({
     required this.routeSpec,
-    required this.shift,
 
     Key? key,
   }) : super(key: key);
@@ -20,7 +19,6 @@ class Button extends StatefulWidget {
   //  RoutSpec defines all route-specific information, e.g.: icon,
   //  route, page title.
   final RouteSpec routeSpec;
-  final double shift;
 
   @override
   _ButtonState createState() => _ButtonState();
@@ -42,13 +40,13 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 2500),
       vsync: this,
     )..forward();
 
     _animation = Tween<Offset>(
-      begin: Offset(3.0, -6.0 - widget.shift),
-      end: Offset(3.0, 0.0 - widget.shift),
+      begin: Offset(0.0, -1.0),
+      end: Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
       curve: Curves.elasticOut,
@@ -66,20 +64,16 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     return Stack(
       children: <Widget>[
         Builder(
-            builder: (context) => Center(
-                child: SlideTransition(
-                  position: _animation,
-                  transformHitTests: true,
-                  child: FloatingActionButton(
-                    // Use routeSpec.title for heroTag.
-                    heroTag: widget.routeSpec.title,
-                    child: widget.routeSpec.icon,
-                    onPressed: () {
-                      widget.routeSpec.onPressed(context);
-                    },
-                  ),
-                )
-            )
+          builder: (context) => SlideTransition(
+            position: _animation,
+            transformHitTests: true,
+            child: FloatingActionButton(
+              // Use routeSpec.title for heroTag.
+              heroTag: widget.routeSpec.title,
+              child: widget.routeSpec.icon,
+              onPressed: () => widget.routeSpec.onPressed(context)
+            ),
+          )
         ),
       ],
     );

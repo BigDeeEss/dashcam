@@ -59,32 +59,35 @@ class _BasePageState extends State<BasePage> {
         },
       ),
 
-      body: Stack(
-        children: [
-          Button(
-            routeSpec: home,
-            shift: 0.0,
+      //  Use a Container-Align-Column combination to locate the button list.
+      body: Container(
+        child: Align(
+          alignment: Alignment.topRight,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Button(
+                  routeSpec: home,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Button(
+                  routeSpec: settings,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Button(
+                  routeSpec: eject,
+                ),
+              ),
+            ],
           ),
-          Button(
-            routeSpec: settings,
-            shift: 2.0,
-          ),
-          Button(
-            routeSpec: eject,
-            shift: 4.0,
-          ),
-        ]
+        ),
       ),
     );
   }
-}
-
-
-class Point {
-  double x;
-  double y;
-
-  // Syntactic sugar for setting x and y
-  // before the constructor body runs.
-  Point(this.x, this.y);
 }
