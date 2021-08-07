@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:dashcam/route_specs.dart';
 
 
-//  StatefulWidget which implements a dynamic button.
+//  StatefulWidget which implements a dynamic Button.
 class Button extends StatefulWidget {
   //  Constructor for [Button].
   const Button({
@@ -32,6 +32,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
 
   //  Define the type of animation, in this case between two Offset() classes.
   late Animation<Offset> _animation;
+
+  void Function()? onPressed(BuildContext context) {
+    print('Pressed Button onpressed...');
+  }
 
   @override
   void initState() {
@@ -62,23 +66,20 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     return Stack(
       children: <Widget>[
         Builder(
-          builder: (context) => Center(
-            child: SlideTransition(
-              position: _animation,
-              transformHitTests: true,
-              child: FloatingActionButton(
-                // Use routeSpec.title for heroTag.
-                heroTag: widget.routeSpec.title,
-                child: widget.routeSpec.icon,
-                // onPressed: widget.routeSpec.onPressed(context),
-                onPressed: () {
-                  //  Get rid of top route  and replace with new.
-                  print('Button opnressed...');
-                  Navigator.popAndPushNamed(context, widget.routeSpec.route);
-                },
-              ),
+            builder: (context) => Center(
+                child: SlideTransition(
+                  position: _animation,
+                  transformHitTests: true,
+                  child: FloatingActionButton(
+                    // Use routeSpec.title for heroTag.
+                    heroTag: widget.routeSpec.title,
+                    child: widget.routeSpec.icon,
+                    onPressed: () {
+                      widget.routeSpec.onPressed(context);
+                    },
+                  ),
+                )
             )
-          )
         ),
       ],
     );

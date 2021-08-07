@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:dashcam/button.dart';
-import 'package:dashcam/button2.dart';
 import 'package:dashcam/route_specs.dart';
 
 
@@ -62,15 +61,15 @@ class _BasePageState extends State<BasePage> {
 
       body: Stack(
         children: [
-          Button2(
+          Button(
             routeSpec: home,
             shift: 0.0,
           ),
-          Button2(
+          Button(
             routeSpec: settings,
             shift: 2.0,
           ),
-          Button2(
+          Button(
             routeSpec: eject,
             shift: 4.0,
           ),
