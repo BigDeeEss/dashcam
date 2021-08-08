@@ -30,7 +30,7 @@ class _BasePageState extends State<BasePage> {
         title: Text(widget.routeSpec.title),
 
         //  Remove 'leading' widget associated with AppBar() class.
-        automaticallyImplyLeading: appSettings.automaticallyImplyLeading,
+        // automaticallyImplyLeading: appSettings.automaticallyImplyLeading,
       ),
 
       //  Use Builder(...) widget because it is not possible to get the appBar

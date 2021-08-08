@@ -77,4 +77,4 @@ flutter:
   fonts:
     - family: CustomIcons
       fonts:
-        - asset: lib/external/fonts/custom_icons.ttf
+        - asset: lib/fonts/custom_icons.ttf
