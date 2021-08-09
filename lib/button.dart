@@ -32,10 +32,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 2500),
-        vsync: this,
-        debugLabel: 'Button')
-      ..forward();
+      duration: const Duration(milliseconds: 2500),
+      vsync: this,
+      debugLabel: 'Button',
+    )..forward();
 
     _animation = Tween<Offset>(
       begin: Offset(-2.0, 0.0),
@@ -57,15 +57,17 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     return Stack(
       children: <Widget>[
         Builder(
-            builder: (context) => SlideTransition(
-                  position: _animation,
-                  transformHitTests: true,
-                  child: FloatingActionButton(
-                      // Use buttonSpec.title for heroTag.
-                      heroTag: widget.buttonSpec.title,
-                      child: widget.buttonSpec.icon,
-                      onPressed: () => widget.buttonSpec.onPressed(context)),
-                )),
+          builder: (context) => SlideTransition(
+            position: _animation,
+            transformHitTests: true,
+            child: FloatingActionButton(
+              // Use buttonSpec.title for heroTag.
+              heroTag: widget.buttonSpec.title,
+              child: widget.buttonSpec.icon,
+              onPressed: () => widget.buttonSpec.onPressed(context),
+            ),
+          ),
+        ),
       ],
     );
   }

@@ -17,10 +17,11 @@ const buttonAlignment = Alignment.bottomRight;
 /// [buttonPaddingDown] defines the padding for downward direction
 /// button positioning associated with BasePage.
 const EdgeInsetsDirectional buttonPaddingDown = EdgeInsetsDirectional.fromSTEB(
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxis,
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxisExtra);
+  buttonPaddingCrossAxis,
+  buttonPaddingMainAxis,
+  buttonPaddingCrossAxis,
+  buttonPaddingMainAxisExtra,
+);
 
 /// [buttonPaddingCrossAxis] defines the cross axis padding between buttons
 /// associated with BasePage.
@@ -37,7 +38,8 @@ const double buttonPaddingMainAxisExtra = 10.0;
 /// [buttonPaddingUp] defines the padding for downward direction
 /// button positioning associated with BasePage.
 const EdgeInsetsDirectional buttonPaddingUp = EdgeInsetsDirectional.fromSTEB(
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxisExtra,
-    buttonPaddingCrossAxis,
-    buttonPaddingMainAxis);
+  buttonPaddingCrossAxis,
+  buttonPaddingMainAxisExtra,
+  buttonPaddingCrossAxis,
+  buttonPaddingMainAxis,
+);
