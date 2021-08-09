@@ -27,10 +27,6 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
   //  Define an animation controller.
   late AnimationController _controller;
 
-  void Function()? onPressed(BuildContext context) {
-    print('Pressed Button onpressed...');
-  }
-
   @override
   void initState() {
     super.initState();
