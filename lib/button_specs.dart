@@ -9,7 +9,6 @@ class ButtonSpec {
   const ButtonSpec({
     required this.title,
     required this.icon,
-    required this.route,
     required this.onPressed,
   });
 
@@ -20,10 +19,6 @@ class ButtonSpec {
   //  of the associated FAB.
   final void Function(BuildContext context) onPressed;
 
-  //  [route] defines which page is displayed when FAB associated
-  //  with RouteSpec is activated.
-  final String route;
-
   //  [title] of screen appearing on appBar.
   final String title;
 }
@@ -31,7 +26,6 @@ class ButtonSpec {
 ButtonSpec eject = ButtonSpec(
   title: 'Eject',
   icon: Icon(CustomIcons.eject),
-  route: '/home',
   onPressed: (context) {
     Navigator.pop(context);
   },
@@ -40,16 +34,14 @@ ButtonSpec eject = ButtonSpec(
 ButtonSpec home = ButtonSpec(
   title: 'Home',
   icon: Icon(CustomIcons.home),
-  route: '/home',
   onPressed: (context) {
-    Navigator.popAndPushNamed(context, '/home');
+    Navigator.popAndPushNamed(context, '/');
   },
 );
 
 ButtonSpec settings = ButtonSpec(
   title: 'Settings',
   icon: Icon(CustomIcons.cog_1),
-  route: '/settings',
   onPressed: (context) {
     Navigator.popAndPushNamed(context, '/settings');
   },
