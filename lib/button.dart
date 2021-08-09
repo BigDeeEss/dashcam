@@ -2,19 +2,19 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:dashcam/route_specs.dart';
+import 'package:dashcam/button_specs.dart';
 
 //  StatefulWidget which implements a dynamic Button.
 class Button extends StatefulWidget {
   //  Constructor for [Button].
   const Button({
-    required this.routeSpec,
+    required this.buttonSpec,
     Key? key,
   }) : super(key: key);
 
   //  RoutSpec defines all route-specific information, e.g.: icon,
   //  route, page title.
-  final RouteSpec routeSpec;
+  final ButtonSpec buttonSpec;
 
   @override
   _ButtonState createState() => _ButtonState();
@@ -36,12 +36,13 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2500),
-      vsync: this,
-    )..forward();
+        duration: const Duration(milliseconds: 2500),
+        vsync: this,
+        debugLabel: 'Button')
+      ..forward();
 
     _animation = Tween<Offset>(
-      begin: Offset(0.0, -1.0),
+      begin: Offset(-2.0, 0.0),
       end: Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
@@ -64,10 +65,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                   position: _animation,
                   transformHitTests: true,
                   child: FloatingActionButton(
-                      // Use routeSpec.title for heroTag.
-                      heroTag: widget.routeSpec.title,
-                      child: widget.routeSpec.icon,
-                      onPressed: () => widget.routeSpec.onPressed(context)),
+                      // Use buttonSpec.title for heroTag.
+                      heroTag: widget.buttonSpec.title,
+                      child: widget.buttonSpec.icon,
+                      onPressed: () => widget.buttonSpec.onPressed(context)),
                 )),
       ],
     );

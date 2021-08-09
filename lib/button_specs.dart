@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 // Import project-specific files.
 import 'package:dashcam/lib/custom_icons.dart';
 
-class RouteSpec {
+class ButtonSpec {
   //  Constructor for [routeSpec].
-  const RouteSpec({
+  const ButtonSpec({
     required this.title,
     required this.icon,
     required this.route,
@@ -28,7 +28,7 @@ class RouteSpec {
   final String title;
 }
 
-RouteSpec eject = RouteSpec(
+ButtonSpec eject = ButtonSpec(
   title: 'Eject',
   icon: Icon(CustomIcons.eject),
   route: '/home',
@@ -37,7 +37,7 @@ RouteSpec eject = RouteSpec(
   },
 );
 
-RouteSpec home = RouteSpec(
+ButtonSpec home = ButtonSpec(
   title: 'Home',
   icon: Icon(CustomIcons.home),
   route: '/home',
@@ -46,7 +46,7 @@ RouteSpec home = RouteSpec(
   },
 );
 
-RouteSpec settings = RouteSpec(
+ButtonSpec settings = ButtonSpec(
   title: 'Settings',
   icon: Icon(CustomIcons.cog_1),
   route: '/settings',
