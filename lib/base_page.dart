@@ -9,12 +9,12 @@ import 'package:dashcam/app_settings.dart' as appSettings;
 /// StatefulWidget implements a basic page layout design.
 class BasePage extends StatefulWidget {
   const BasePage({
-    required this.route,
+    required this.title,
     Key? key,
   }) : super(key: key);
 
-  /// [route] is a string representation of a route specified in main.dart.
-  final String route;
+  /// [title] is the page title displayed on the appBar.
+  final String title;
 
   @override
   _BasePageState createState() => _BasePageState();
@@ -26,10 +26,7 @@ class _BasePageState extends State<BasePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.route),
-
-        //  Remove 'leading' widget associated with AppBar() class.
-        // automaticallyImplyLeading: appSettings.automaticallyImplyLeading,
+        title: Text(widget.title),
       ),
 
       //  Use Builder(...) widget because it is not possible to get the appBar
@@ -45,7 +42,8 @@ class _BasePageState extends State<BasePage> {
                   //  Set height of the BottomAppBar(...) class variable using
                   //  SizedBox(...). Get height from [context] by first
                   //  extracting the immediate Scaffold(...), and then getting
-                  //  the value for appBarMaxHeight.
+                  //  the value for appBarMaxHeight. Need to take into account
+                  //  appBarMaxHeight possibly being null.
                   height: (Scaffold.of(context).appBarMaxHeight ?? 0.0) *
                       appSettings.appBarHeightScaleFactor,
                 ),

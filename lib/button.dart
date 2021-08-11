@@ -20,7 +20,7 @@ class Button extends StatefulWidget {
   _ButtonState createState() => _ButtonState();
 }
 
-class _ButtonState extends State<Button> with TickerProviderStateMixin {
+class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
   //  Define the type of animation, in this case between two Offset() classes.
   late Animation<Offset> _animation;
 
@@ -48,27 +48,21 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    //  Need to dispose of controlled before disposing widget.
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Builder(
-          builder: (context) => SlideTransition(
-            position: _animation,
-            transformHitTests: true,
-            child: FloatingActionButton(
-              // Use buttonSpec.title for heroTag.
-              heroTag: widget.buttonSpec.title,
-              child: widget.buttonSpec.icon,
-              onPressed: () => widget.buttonSpec.onPressed(context),
-            ),
-          ),
-        ),
-      ],
+    return SlideTransition(
+      position: _animation,
+      child: FloatingActionButton(
+        // Use buttonSpec.title for heroTag.
+        heroTag: widget.buttonSpec.title,
+        child: widget.buttonSpec.icon,
+        onPressed: () => widget.buttonSpec.onPressed(context),
+      ),
     );
   }
 }

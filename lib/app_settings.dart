@@ -5,12 +5,6 @@ import 'package:flutter/painting.dart';
 /// appBar when calculating bottomNavigationBar in BasePage.
 const double appBarHeightScaleFactor = 1.0;
 
-// /// [automaticallyImplyLeading] toggles whether the 'leading back arrow' widget
-// /// associated with BasePage is used.
-// /// Set 'true' only for development. Note that if set to true the
-// /// 'leading back arrow' may still not be displayed if no page is available.
-// const bool automaticallyImplyLeading = true;
-
 /// [buttonAlignment] defines the anchor point for FAB placement in BasePage.
 const buttonAlignment = Alignment.bottomRight;
 

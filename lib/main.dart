@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 //  Import project-specific files.
 import 'package:dashcam/base_page.dart';
-import 'package:dashcam/button_specs.dart';
 
 //  App start point.
 void main() {
@@ -11,7 +10,7 @@ void main() {
 }
 
 class DashCam extends StatelessWidget {
-  //  Default constructor required because there is a const keyword
+  //  Default const constructor required because there is a const keyword
   //  in 'runApp(const DashCam(...));' above.
   const DashCam({Key? key}) : super(key: key);
 
@@ -21,24 +20,7 @@ class DashCam extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DashCam',
-
-      //  [initialRoute] is executed when building the initial widget.
-      //  It is optional. It overrules the '/' route below.
-      initialRoute: '/',
-
-      //  Define all routes in DashCam app. DashCam uses a simple screen
-      //  layout with the layout of each page defined by [BasePage].
-      routes: {
-        //  Specify initial route (used at time of initial widget build).
-        //  Can be overridden by initialRoute.
-        '/': (context) => BasePage(route: 'Home'),
-
-        //  Specify route => Files.
-        '/files': (context) => BasePage(route: 'files'),
-
-        //  Specify route to => Settings.
-        '/settings': (context) => BasePage(route: 'Settings'),
-      },
+      home: BasePage(title: 'Home')
     );
   }
 }
