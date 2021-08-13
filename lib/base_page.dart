@@ -34,6 +34,9 @@ class _BasePageState extends State<BasePage> {
       //  Scaffold(...) class being returned by this widget.
       bottomNavigationBar: Builder(
         builder: (BuildContext context) {
+          //  [height] variable for storing appBar height.
+          double height = MediaQuery.of(context).padding.top + kToolbarHeight;
+
           return BottomAppBar(
             color: Colors.blue,
             child: Row(
@@ -44,8 +47,9 @@ class _BasePageState extends State<BasePage> {
                   //  extracting the immediate Scaffold(...), and then getting
                   //  the value for appBarMaxHeight. Need to take into account
                   //  appBarMaxHeight possibly being null.
-                  height: (Scaffold.of(context).appBarMaxHeight ?? 0.0) *
-                      appSettings.appBarHeightScaleFactor,
+                  // height: (Scaffold.of(context).appBarMaxHeight ?? 0.0) *
+                  //     appSettings.appBarHeightScaleFactor,
+                  height: height * appSettings.appBarHeightScaleFactor,
                 ),
               ],
             ),
