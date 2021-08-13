@@ -24,6 +24,9 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size);
+    Size screenSize = MediaQuery.of(context).size;
+    print(screenSize);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -59,6 +62,10 @@ class _BasePageState extends State<BasePage> {
 
       //  Use a Container-Align-Column combination to locate the button list.
       body: Container(
+        constraints: BoxConstraints.expand(
+          width: double.infinity,
+          height: double.infinity,
+        ),
         child: Align(
           alignment: appSettings.buttonAlignment,
           child: Column(
@@ -67,28 +74,34 @@ class _BasePageState extends State<BasePage> {
                 ? VerticalDirection.down
                 : VerticalDirection.up,
             children: <Widget>[
+              // Padding(
+              //   padding: (appSettings.buttonAlignment.y < 0)
+              //       ? appSettings.buttonPaddingDown
+              //       : appSettings.buttonPaddingUp,
+              //   child: Button(
+              //     buttonSpec: home,
+              //     // screenSize: screenSize,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: (appSettings.buttonAlignment.y < 0)
+              //       ? appSettings.buttonPaddingDown
+              //       : appSettings.buttonPaddingUp,
+              //   child: Button(
+              //     buttonSpec: settings,
+              //     // screenSize: screenSize,
+              //   ),
+              // ),
               Padding(
                 padding: (appSettings.buttonAlignment.y < 0)
                     ? appSettings.buttonPaddingDown
                     : appSettings.buttonPaddingUp,
-                child: Button(
-                  buttonSpec: home,
-                ),
-              ),
-              Padding(
-                padding: (appSettings.buttonAlignment.y < 0)
-                    ? appSettings.buttonPaddingDown
-                    : appSettings.buttonPaddingUp,
-                child: Button(
-                  buttonSpec: settings,
-                ),
-              ),
-              Padding(
-                padding: (appSettings.buttonAlignment.y < 0)
-                    ? appSettings.buttonPaddingDown
-                    : appSettings.buttonPaddingUp,
-                child: Button(
-                  buttonSpec: eject,
+                child: Container(
+                  color: Colors.red,
+                  child: Button(
+                    buttonSpec: eject,
+                    screenSize: screenSize,
+                  ),
                 ),
               ),
             ],

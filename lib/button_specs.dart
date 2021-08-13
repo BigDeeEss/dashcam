@@ -21,9 +21,10 @@ Route _createRoute(ButtonSpec buttonSpec) {
 class ButtonSpec {
   //  Constructor for [routeSpec].
   const ButtonSpec({
-    required this.title,
     required this.icon,
     required this.onPressed,
+    required this.size,
+    required this.title,
   });
 
   //  [icon] is displayed on the FAB associated with [RouteSpec].
@@ -33,30 +34,37 @@ class ButtonSpec {
   //  of the associated FAB.
   final void Function(BuildContext context) onPressed;
 
+  final double size;
+
   //  [title] of screen appearing on appBar.
   final String title;
+
+  // double screenDimension(BuildContext context);
 }
 
 ButtonSpec eject = ButtonSpec(
-  title: 'Eject',
   icon: Icon(CustomIcons.eject),
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(eject));
   },
+  size: 50,
+  title: 'Eject',
 );
 
 ButtonSpec home = ButtonSpec(
-  title: 'Home',
   icon: Icon(CustomIcons.home),
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(home));
   },
+  size: 200,
+  title: 'Home',
 );
 
 ButtonSpec settings = ButtonSpec(
-  title: 'Settings',
   icon: Icon(CustomIcons.cog_1),
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(settings));
   },
+  size: 100,
+  title: 'Settings',
 );
