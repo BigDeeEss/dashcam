@@ -41,7 +41,7 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
     print('test2');
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 5000),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
       debugLabel: 'Button',
     )..forward();
@@ -51,7 +51,11 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
       end: Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticOut,
+      // curve: Curves.elasticOut,
+      // curve: Curves.decelerate,
+      // curve: Curves.easeOutBack,
+      // curve: Curves.easeOutCirc,
+      curve: Curves.easeOut,
     ));
   }
 
@@ -66,11 +70,15 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SlideTransition(
       position: _animation,
-      child: FloatingActionButton(
-        // Use buttonSpec.title for heroTag.
-        heroTag: widget.buttonSpec.title,
-        child: widget.buttonSpec.icon,
-        onPressed: () => widget.buttonSpec.onPressed(context),
+      child: Container(
+        height: widget.buttonSpec.size,
+        width: widget.buttonSpec.size,
+        child:FloatingActionButton(
+          // Use buttonSpec.title for heroTag.
+          heroTag: widget.buttonSpec.title,
+          child: widget.buttonSpec.icon,
+          onPressed: () => widget.buttonSpec.onPressed(context),
+        ),
       ),
     );
   }

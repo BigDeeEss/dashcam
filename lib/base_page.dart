@@ -66,6 +66,7 @@ class _BasePageState extends State<BasePage> {
           width: double.infinity,
           height: double.infinity,
         ),
+
         child: Align(
           alignment: appSettings.buttonAlignment,
           child: Column(
@@ -74,24 +75,24 @@ class _BasePageState extends State<BasePage> {
                 ? VerticalDirection.down
                 : VerticalDirection.up,
             children: <Widget>[
-              // Padding(
-              //   padding: (appSettings.buttonAlignment.y < 0)
-              //       ? appSettings.buttonPaddingDown
-              //       : appSettings.buttonPaddingUp,
-              //   child: Button(
-              //     buttonSpec: home,
-              //     // screenSize: screenSize,
-              //   ),
-              // ),
-              // Padding(
-              //   padding: (appSettings.buttonAlignment.y < 0)
-              //       ? appSettings.buttonPaddingDown
-              //       : appSettings.buttonPaddingUp,
-              //   child: Button(
-              //     buttonSpec: settings,
-              //     // screenSize: screenSize,
-              //   ),
-              // ),
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Button(
+                  buttonSpec: home,
+                  screenSize: screenSize,
+                ),
+              ),
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Button(
+                  buttonSpec: settings,
+                  screenSize: screenSize,
+                ),
+              ),
               Padding(
                 padding: (appSettings.buttonAlignment.y < 0)
                     ? appSettings.buttonPaddingDown

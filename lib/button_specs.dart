@@ -47,7 +47,7 @@ ButtonSpec eject = ButtonSpec(
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(eject));
   },
-  size: 50,
+  size: 56,
   title: 'Eject',
 );
 
@@ -56,7 +56,7 @@ ButtonSpec home = ButtonSpec(
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(home));
   },
-  size: 200,
+  size: 56,
   title: 'Home',
 );
 
@@ -65,6 +65,6 @@ ButtonSpec settings = ButtonSpec(
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(settings));
   },
-  size: 100,
+  size: 56,
   title: 'Settings',
 );
