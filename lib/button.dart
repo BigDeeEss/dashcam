@@ -25,10 +25,10 @@ class Button extends StatefulWidget {
 
 class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
   //  Define the type of animation, in this case between two Offset() classes.
-  late Animation<Offset> _animation ;
+  // late Animation<Offset> _animation ;
 
   //  Define an animation controller.
-  late AnimationController _controller;
+  // late AnimationController _controller;
 
   late double? _screenWidth;
 
@@ -40,45 +40,42 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
     print(widget.screenSize);
     print('test2');
 
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1000),
-      vsync: this,
-      debugLabel: 'Button',
-    )..forward();
+    // _controller = AnimationController(
+    //   duration: const Duration(milliseconds: 10000),
+    //   vsync: this,
+    //   debugLabel: 'Button',
+    // )..forward();
 
-    _animation = Tween<Offset>(
-      begin: Offset(-widget.screenSize.width / widget.buttonSpec.size, 0.0),
-      end: Offset(0.0, 0.0),
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      // curve: Curves.elasticOut,
-      // curve: Curves.decelerate,
-      // curve: Curves.easeOutBack,
-      // curve: Curves.easeOutCirc,
-      curve: Curves.easeOut,
-    ));
+    // _animation = Tween<Offset>(
+    //   begin: Offset(-widget.screenSize.width / widget.buttonSpec.size, 0.0),
+    //   end: Offset(0.0, 0.0),
+    // ).animate(CurvedAnimation(
+    //   parent: _controller,
+    //   // curve: Curves.elasticOut,
+    //   // curve: Curves.decelerate,
+    //   // curve: Curves.easeOutBack,
+    //   // curve: Curves.easeOutCirc,
+    //   curve: Curves.easeOut,
+    // ));
   }
 
   @override
   void dispose() {
     //  Need to dispose of controlled before disposing widget.
-    _controller.dispose();
+    // _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _animation,
-      child: Container(
-        height: widget.buttonSpec.size,
-        width: widget.buttonSpec.size,
-        child:FloatingActionButton(
-          // Use buttonSpec.title for heroTag.
-          heroTag: widget.buttonSpec.title,
-          child: widget.buttonSpec.icon,
-          onPressed: () => widget.buttonSpec.onPressed(context),
-        ),
+    return Container(
+      height: widget.buttonSpec.size,
+      width: widget.buttonSpec.size,
+      child:FloatingActionButton(
+        // Use buttonSpec.title for heroTag.
+        heroTag: widget.buttonSpec.title,
+        child: widget.buttonSpec.icon,
+        onPressed: () => widget.buttonSpec.onPressed(context),
       ),
     );
   }
