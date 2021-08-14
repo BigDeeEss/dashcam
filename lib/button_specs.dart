@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:dashcam/base_page.dart';
+import 'package:dashcam/base_page2.dart';
 import 'package:dashcam/lib/custom_icons.dart';
 
 // Implement PageRouteBuilder method for managing page/route transitions.
@@ -38,8 +38,6 @@ class ButtonSpec {
 
   //  [title] of screen appearing on appBar.
   final String title;
-
-  // double screenDimension(BuildContext context);
 }
 
 ButtonSpec eject = ButtonSpec(
