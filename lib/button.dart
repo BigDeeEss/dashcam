@@ -36,22 +36,29 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
+    // Offset begin = Offset(-widget.screenSize.width / widget.buttonSpec.size / 2, 0.0);
+    Offset begin = Offset(-widget.screenSize.width / widget.buttonSpec.size, 0.0);
+
     print('test1');
     print(widget.screenSize);
     print('test2');
+    print(widget.buttonSpec.size);
+    print('test3');
+    print(begin.toString());
+    print('test4');
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 5000),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
       debugLabel: 'Button',
     )..forward();
 
     _animation = Tween<Offset>(
-      begin: Offset(-widget.screenSize.width / widget.buttonSpec.size, 0.0),
+      begin: begin,
       end: Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticOut,
+      curve: Curves.easeOut,
     ));
   }
 

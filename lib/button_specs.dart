@@ -56,7 +56,7 @@ ButtonSpec home = ButtonSpec(
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(home));
   },
-  size: 200,
+  size: 50,
   title: 'Home',
 );
 
@@ -65,6 +65,6 @@ ButtonSpec settings = ButtonSpec(
   onPressed: (context) {
     Navigator.of(context).pushReplacement(_createRoute(settings));
   },
-  size: 100,
+  size: 50,
   title: 'Settings',
 );

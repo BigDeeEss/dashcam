@@ -24,8 +24,20 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size);
     Size screenSize = MediaQuery.of(context).size;
+    Button ejectButton = Button(
+        buttonSpec: eject,
+        screenSize: screenSize,
+      );
+    Button homeButton = Button(
+        buttonSpec: home,
+        screenSize: screenSize,
+      );
+    Button settingsButton = Button(
+        buttonSpec: settings,
+        screenSize: screenSize,
+      );
+    print(MediaQuery.of(context).size);
     print(screenSize);
     return Scaffold(
       appBar: AppBar(
@@ -74,33 +86,42 @@ class _BasePageState extends State<BasePage> {
                 ? VerticalDirection.down
                 : VerticalDirection.up,
             children: <Widget>[
-              // Padding(
-              //   padding: (appSettings.buttonAlignment.y < 0)
-              //       ? appSettings.buttonPaddingDown
-              //       : appSettings.buttonPaddingUp,
-              //   child: Button(
-              //     buttonSpec: home,
-              //     // screenSize: screenSize,
-              //   ),
-              // ),
-              // Padding(
-              //   padding: (appSettings.buttonAlignment.y < 0)
-              //       ? appSettings.buttonPaddingDown
-              //       : appSettings.buttonPaddingUp,
-              //   child: Button(
-              //     buttonSpec: settings,
-              //     // screenSize: screenSize,
-              //   ),
-              // ),
               Padding(
                 padding: (appSettings.buttonAlignment.y < 0)
                     ? appSettings.buttonPaddingDown
                     : appSettings.buttonPaddingUp,
                 child: Container(
                   color: Colors.red,
-                  child: Button(
-                    buttonSpec: eject,
-                    screenSize: screenSize,
+                  child: SizedBox(
+                    height: homeButton.buttonSpec.size,
+                    width: homeButton.buttonSpec.size,
+                    child: homeButton,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Container(
+                  color: Colors.red,
+                  child: SizedBox(
+                    height: settingsButton.buttonSpec.size,
+                    width: settingsButton.buttonSpec.size,
+                    child: settingsButton,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Container(
+                  color: Colors.red,
+                  child: SizedBox(
+                    height: ejectButton.buttonSpec.size,
+                    width: ejectButton.buttonSpec.size,
+                    child: ejectButton,
                   ),
                 ),
               ),
