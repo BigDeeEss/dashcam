@@ -48,7 +48,7 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
     print('test4');
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 50000),
       vsync: this,
       debugLabel: 'Button',
     )..forward();
