@@ -1,47 +1,26 @@
+//  Import flutter packages.
 import 'package:flutter/material.dart';
 
+//  Import project-specific files.
+import 'package:dashcam/base_page.dart';
+
+//  App start point.
 void main() {
-  runApp(const BottomAppBarDemo());
+  runApp(const DashCam());
 }
 
-class BottomAppBarDemo extends StatefulWidget {
-  const BottomAppBarDemo({Key? key}) : super(key: key);
-  @override
-  State createState() => _BottomAppBarDemoState();
-}
+class DashCam extends StatelessWidget {
+  //  Default constructor required because there is a const keyword
+  //  in 'runApp(const DashCam(...));' above.
+  const DashCam({Key? key}) : super(key: key);
 
-class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
+  //  Root widget of DashCam project defining the first widget built
+  //  by runApp(...).
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text('Bottom App Bar Demo'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-          tooltip: 'Create',
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.blue,
-          shape: CircularNotchedRectangle(),
-          child: IconTheme(
-            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-            child: Row(
-              children: <Widget>[
-                IconButton(
-                  tooltip: 'Open navigation menu',
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      title: 'DashCam',
+      home: BasePage(title: 'Home'),
     );
   }
 }
