@@ -20,7 +20,7 @@ class DashCam extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DashCam',
-      home: BasePage(title: 'Home'),
+      home: BasePage(title: 'Home',),
     );
   }
 }

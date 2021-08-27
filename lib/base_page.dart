@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:dashcam/app_settings.dart' as appSettings;
+import 'package:dashcam/button.dart';
 
 /// [BasePage] implements a basic page layout design.
 class BasePage extends StatelessWidget {
@@ -67,8 +68,9 @@ class BasePage extends StatelessWidget {
                 child: Container(
                   color: Colors.red,
                   child: SizedBox(
-                    height: 10,
-                    width: 10,
+                    height: 50,
+                    width: 50,
+                    child: Button(),
                   ),
                 ),
               ),
