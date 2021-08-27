@@ -47,6 +47,35 @@ class BasePage extends StatelessWidget {
           );
         },
       ),
+      body: Container(
+        constraints: BoxConstraints.expand(
+          width: double.infinity,
+          height: double.infinity,
+        ),
+        child: Align(
+          alignment: appSettings.buttonAlignment,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            verticalDirection: (appSettings.buttonAlignment.y < 0)
+                ? VerticalDirection.down
+                : VerticalDirection.up,
+            children: <Widget>[
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Container(
+                  color: Colors.red,
+                  child: SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
