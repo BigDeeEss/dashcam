@@ -1,6 +1,9 @@
 //  Import flutter packages.
 import 'package:flutter/material.dart';
 
+//  Import project-specific files.
+import 'package:dashcam/base_page.dart';
+
 class Button extends StatelessWidget {
   const Button({Key? key}) : super(key: key);
 
@@ -8,8 +11,32 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        print('Hello');
+        Navigator.of(context).pushReplacement(_createRoute('settings'));
       },
     );
   }
+}
+
+
+// Implement PageRouteBuilder method for managing page/route transitions.
+Route _createRoute(String title) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        BasePage(
+          title: title,
+        ),
+    transitionDuration: const Duration(seconds: 1),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
