@@ -10,6 +10,9 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    print(screenSize);
+
     return FloatingActionButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(_createRoute('settings'));
@@ -25,6 +28,7 @@ Route _createRoute(String title) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) =>
         BasePage(
+          animation: animation,
           title: title,
         ),
     transitionDuration: const Duration(seconds: 1),
