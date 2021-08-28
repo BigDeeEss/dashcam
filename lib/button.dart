@@ -18,13 +18,16 @@ class Button extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
 
     if (this.animation == null) {
+      print('null');
       return FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushReplacement(_createRoute('settings'));
         },
         child: Icon(CustomIcons.cog_1),
+        backgroundColor: Colors.yellow,
       );
     } else {
+      print('not null');
       // return Container();
       return SlidingButton(
         animation: this.animation!,
