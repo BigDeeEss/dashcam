@@ -6,22 +6,82 @@ import 'package:dashcam/base_page.dart';
 import 'package:dashcam/lib/custom_icons.dart';
 
 class Button extends StatelessWidget {
-  const Button({Key? key}) : super(key: key);
+  const Button({
+    this.animation,
+    Key? key,
+  }) : super(key: key);
+
+  final Animation<double>? animation;
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    print(screenSize);
 
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.of(context).pushReplacement(_createRoute('settings'));
-      },
-      child: Icon(CustomIcons.cog_1),
-    );
+    if (this.animation == null) {
+      return FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushReplacement(_createRoute('settings'));
+        },
+        child: Icon(CustomIcons.cog_1),
+      );
+    } else {
+      // return Container();
+      return SlidingButton(
+        animation: this.animation!,
+        // onPressed: () {
+        //   Navigator.of(context).pushReplacement(_createRoute('settings'));
+        // },
+        // child: Icon(CustomIcons.cog_1),
+      );
+    }
   }
 }
 
+class SlidingButton extends StatelessWidget {
+  const SlidingButton({
+    required this.animation,
+    Key? key,
+  }) : super(key: key);
+
+  static const double initialOffsetX = -100;
+  static const double intervalStart = 0.5;
+  static const double intervalEnd = 1.0;
+
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: this.animation,
+      builder: (context, child) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: Offset(initialOffsetX, 0),
+            end: Offset(0, 0),
+          ).animate(
+            CurvedAnimation(
+              curve: Interval(
+                intervalStart,
+                intervalEnd,
+                curve: Curves.easeOutCubic,
+              ),
+              parent: this.animation,
+            ),
+          ),
+          child: child,
+        );
+      },
+      child: Container(
+        color: Colors.red[50],
+        child: SizedBox(
+          height: 100,
+          width: 100,
+          child: Button(),
+        ),
+      ),
+    );
+  }
+}
 
 // Implement PageRouteBuilder method for managing page/route transitions.
 Route _createRoute(String title) {
@@ -31,7 +91,7 @@ Route _createRoute(String title) {
           animation: animation,
           title: title,
         ),
-    transitionDuration: const Duration(seconds: 1),
+    transitionDuration: const Duration(seconds: 2),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 1.0);
       const end = Offset.zero;
