@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 //  Import project-specific files.
 import 'package:dashcam/base_page.dart';
+import 'package:dashcam/lib/custom_icons.dart';
 
 class Button extends StatelessWidget {
   const Button({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class Button extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).pushReplacement(_createRoute('settings'));
       },
+      child: Icon(CustomIcons.cog_1),
     );
   }
 }
