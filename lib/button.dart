@@ -21,7 +21,8 @@ class Button extends StatelessWidget {
       print('null');
       return FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushReplacement(_createRoute('settings'));
+          // Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(createRoute('settings'));
         },
         child: Icon(CustomIcons.cog_1),
         backgroundColor: Colors.yellow,
@@ -32,7 +33,7 @@ class Button extends StatelessWidget {
       return SlidingButton(
         animation: this.animation!,
         // onPressed: () {
-        //   Navigator.of(context).pushReplacement(_createRoute('settings'));
+        //   Navigator.of(context).pushReplacement(createRoute('settings'));
         // },
         // child: Icon(CustomIcons.cog_1),
       );
@@ -87,7 +88,7 @@ class SlidingButton extends StatelessWidget {
 }
 
 // Implement PageRouteBuilder method for managing page/route transitions.
-Route _createRoute(String title) {
+Route createRoute(String title) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) =>
         BasePage(
@@ -118,3 +119,5 @@ Route _createRoute(String title) {
     },
   );
 }
+
+class test extends Route {}

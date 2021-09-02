@@ -81,6 +81,21 @@ class BasePage extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: (appSettings.buttonAlignment.y < 0)
+                    ? appSettings.buttonPaddingDown
+                    : appSettings.buttonPaddingUp,
+                child: Container(
+                  color: Colors.red,
+                  child: SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: Button(
+                      animation: this.animation
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

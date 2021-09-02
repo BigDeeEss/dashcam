@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 //  Import project-specific files.
 import 'package:dashcam/base_page.dart';
+import 'package:dashcam/button.dart';
+import 'package:dashcam/loader.dart';
 
 //  App start point.
 void main() {
@@ -20,7 +22,9 @@ class DashCam extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DashCam',
-      home: BasePage(title: 'Home',),
+      home: Loader(),
+      // home: BasePage(title: 'Home',),
+      // home: Navigator.of(context).pushReplacement(createRoute('settings')),
     );
   }
 }
